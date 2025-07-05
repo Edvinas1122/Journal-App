@@ -20,12 +20,16 @@ RUN /utils/cloudflared.install.sh
 # Set tunnel configuration
 RUN mkdir -p /root/.cloudflared
 RUN mv /utils/tunnel.config.yaml /root/.cloudflared/config.yaml
-RUN mv /utils/tunnel.credentials.json /root/.cloudflared/tunnel.credentials.json
+RUN mv /utils/creds/tunnel.credentials.json /root/.cloudflared/tunnel.credentials.json
 
 # Get source code
 COPY api /app/api
 COPY front /app/front
 COPY socket /app/socket
+
+# Copy environment variables
+COPY utils/creds/api /app/api/dev.vars
+COPY utils/creds/front /app/front/dev.vars
 
 # Install Node.js dependencies
 WORKDIR /app/api
@@ -36,5 +40,6 @@ RUN npm install
 
 WORKDIR /app/socket
 RUN npm install
+
 
 WORKDIR /app

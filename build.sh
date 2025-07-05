@@ -1,1 +1,1 @@
-docker build -t journal:dev -f dockerfile .
+docker build -t journal:dev -f Dockerfile .
