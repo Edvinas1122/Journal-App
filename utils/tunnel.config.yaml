@@ -1,0 +1,9 @@
+tunnel: dev
+credential: /root/.cloudflared/tunnel.credentials.json
+
+ingress:
+  - hostname: dev.edvinas.online 
+    service: http://localhost:4321
+  - hostname: socket.edvinas.online
+    service: http://localhost:42955
+  - service: http_status:404

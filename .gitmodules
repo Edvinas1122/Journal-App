@@ -1,0 +1,9 @@
+[submodule "api"]
+	path = api
+	url = git@github.com:Edvinas1122/D1_API.git
+[submodule "front"]
+	path = front
+	url = git@github.com:Edvinas1122/AstroApp.git
+[submodule "socket"]
+	path = socket
+	url = https://github.com/Edvinas1122/socket.git
