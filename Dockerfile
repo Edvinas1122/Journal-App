@@ -18,9 +18,13 @@ RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash - && \
 RUN /utils/cloudflared.install.sh
 
 # Set tunnel configuration
-RUN mkdir -p /root/.cloudflared
-RUN mv /utils/tunnel.config.yaml /root/.cloudflared/config.yaml
-RUN mv /utils/creds/tunnel.credentials.json /root/.cloudflared/tunnel.credentials.json
+RUN mkdir -p ~/.cloudflared
+RUN mv /utils/tunnel.config.yaml ~/.cloudflared/config.yaml
+RUN mv /utils/creds/tunnel.credentials.json ~/.cloudflared/tunnel.credentials.json
+RUN mv /utils/creds/cert.pem ~/.cloudflared/cert.pem
+
+
+ENV TUNNEL_ORIGIN_CERT=~/.cloudflared/cert.pem
 
 # Get source code
 COPY api /app/api
@@ -41,5 +45,16 @@ RUN npm install
 WORKDIR /app/socket
 RUN npm install
 
+# Database Initialization
+RUN mkdir -p /database/
+ENV DRIZZLE_OUT=/database
+WORKDIR /app/api
+RUN npx drizzle-kit generate --name=init
+RUN npx wrangler d1 execute MAIN --local --file="/database/0000_init.sql"
+
+# Move commands
+
+COPY utils/run.sh /app/run.sh
+COPY utils/run-tunnel.sh /app/run-tunnel.sh
 
 WORKDIR /app

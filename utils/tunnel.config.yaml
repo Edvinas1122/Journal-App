@@ -1,4 +1,4 @@
-tunnel: dev
+tunnel: dev-tunnel
 credential: /root/.cloudflared/tunnel.credentials.json
 
 ingress:
