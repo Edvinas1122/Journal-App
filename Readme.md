@@ -1,4 +1,4 @@
-# Journal App
+# Journal App Dev Container
 
 Container encapsulates CI/CD repositories of microservices used in an app, hosted on Cloudflare's Workers platform.
 The app currently accessible via [edvinas.online](https://journal.edvinas.online/) domain.
