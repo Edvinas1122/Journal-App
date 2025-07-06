@@ -1,7 +1,7 @@
 # Journal App
 
-This repository contains tools for the quick app development mode deployment, as it 
-consists of repositories hooked to CI/CD.
+Container encapsulates CI/CD repositories of microservices used in an app, hosted on Cloudflare's Workers platform.
+The app currently accessible via [edvinas.online](https://journal.edvinas.online/) domain.
 This way app concers are separated, into develop friendly modular design.
 
 ## Using Docker
