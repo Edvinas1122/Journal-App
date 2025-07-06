@@ -1,6 +1,6 @@
 # Journal App Dev Container
 
-Container encapsulates Automated deployment repositories of microservices used in an app, hosted on Cloudflare's Workers platform.
+Container encapsulates Automated deployment repositories of microservices used in an app, hosted on [Cloudflare's Workers platform](https://workers.cloudflare.com/).
 The app currently accessible via [edvinas.online](https://journal.edvinas.online/) domain.
 This way app concers are separated, into develop friendly modular design.
 
