@@ -13,6 +13,7 @@ Another benefit is quick migration.
 
 Container use Cloudflare's tunnels - network forwarding, ngrok like.
 This way it will bind to a developer preview domain, supporting live reload, while editing the source code.
+When container is up it is hosted on [here](https://dev.edvinas.online).
 
 ## Requirements
 
