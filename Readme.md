@@ -9,6 +9,11 @@ This way app concers are separated, into develop friendly modular design.
 Docker container used to keep dependencies, like node, npm, node modules, dist files, etc. - therefore keeping the host maschine 'cleaner'.
 Another benefit is quick migration. 
 
+## Tunnel network
+
+Container use Cloudflare's tunnels - network forwarding, ngrok like.
+This way it will bind to a developer preview domain, supporting live reload, while editing the source code.
+
 ## Requirements
 
 - Docker
