@@ -15,6 +15,10 @@ Container use Cloudflare's tunnels - network forwarding, ngrok like.
 This way it will bind to a developer preview domain, supporting live reload, while editing the source code.
 When container is up it is hosted on [here](https://dev.edvinas.online).
 
+### Useful commands
+- cloudflared tunnel route dns <tunnel-name> <hostname>
+creates dns record, subdomain
+
 ## Requirements
 
 - **Docker**
