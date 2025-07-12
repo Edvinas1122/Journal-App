@@ -10,6 +10,10 @@ run() {
     bash "$com_dir/run.sh"
 }
 
+tunnel () {
+    bash "utils/command/tunnel.sh"
+}
+
 end() {
     bash "$com_dir/end.sh"
 }
@@ -46,10 +50,11 @@ setup() {
 }
 
 usage() {
-    echo "Usage: $0 {build|run|end|setup}"
+    echo "Usage: $0 {build|run|tunnel|end|setup}"
     echo
     echo "  build   - Installs dependencies and sets up Node.js instances (runs build.sh)"
     echo "  run     - Starts the local development environment (runs run.sh)"
+    echo "  tunnel  - Creates a secure tunnel (runs tunnel.sh)"
     echo "  end     - Stops the environment and performs cleanup (runs end.sh)"
     echo "  setup   - Adds an alias 'app' pointing to this script in your shell config"
     echo
@@ -62,6 +67,9 @@ case "$1" in
         ;;
     run)
         run
+        ;;
+    tunnel)
+        tunnel
         ;;
     end)
         end
