@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 COPY utils /utils
+RUN mv /utils/command/docker /utils
 
 # Install Node.js and cloudflared
 RUN chmod +x /utils/*.sh
@@ -53,7 +54,7 @@ ENV DRIZZLE_OUT=/database
 COPY utils/creds/database /app/api/.env
 WORKDIR /app/api
 RUN npx drizzle-kit generate --name=init
-RUN npx wrangler d1 execute MAIN --local --file="/database/0000_init.sql"
+RUN npx wrangler d1 execute MAIN --local --file="./database/0000_init.sql"
 
 # Move commands
 COPY utils/run.sh /app/run.sh

@@ -1,1 +1,0 @@
-cloudflared tunnel --credentials-file /root/.cloudflared/tunnel.credentials.json run dev
